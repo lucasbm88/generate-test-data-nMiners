@@ -56,7 +56,7 @@ public class Main2 {
 	}
 	
 	public static void main(String[] args) throws IOException, URISyntaxException {
-		products = Files.readAllLines(Paths.get("/home/lucas/mestrado/CODE/generate-test-data/products.list"));
+		products = Files.readAllLines(Paths.get(args[0]+"/products.list"));
 		List<Thread> ts = new ArrayList<Thread>();
 		for(int i=0; i<1500000; i++){
 			Random rand = new Random(System.currentTimeMillis()+i);
@@ -83,7 +83,7 @@ public class Main2 {
 			}
 		}
 		
-		Files.write(Paths.get("/home/lucas/mestrado/CODE/generate-test-data/generated-input.csv"), linesToWrite, StandardOpenOption.CREATE);
+		Files.write(Paths.get(args[0]+"/generated-input.csv"), linesToWrite, StandardOpenOption.CREATE);
 		
 	}
 	
